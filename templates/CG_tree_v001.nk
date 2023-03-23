@@ -1,0 +1,712 @@
+#! C:/Program Files/Nuke12.1v2/nuke-12.1.2.dll -nx
+version 12.1 v2
+define_window_layout_xml {<?xml version="1.0" encoding="UTF-8"?>
+<layout version="1.0">
+    <window x="2559" y="-8" w="1920" h="1027" maximized="1" screen="1">
+        <splitter orientation="1">
+            <split size="40"/>
+            <dock id="" hideTitles="1" activePageId="Toolbar.1">
+                <page id="Toolbar.1"/>
+            </dock>
+            <split size="1257" stretch="1"/>
+            <splitter orientation="2">
+                <split size="0"/>
+                <dock id=""/>
+                <split size="985"/>
+                <dock id="" activePageId="DAG.1" focus="true">
+                    <page id="DAG.1"/>
+                    <page id="Curve Editor.1"/>
+                    <page id="DopeSheet.1"/>
+                </dock>
+            </splitter>
+            <split size="615"/>
+            <dock id="" activePageId="Properties.1">
+                <page id="Properties.1"/>
+                <page id="uk.co.thefoundry.backgroundrenderview.1"/>
+            </dock>
+        </splitter>
+    </window>
+    <window x="0" y="0" w="2558" h="1363" maximized="1" screen="0">
+        <splitter orientation="2">
+            <split size="1363"/>
+            <dock id="" activePageId="Viewer.1">
+                <page id="Viewer.1"/>
+            </dock>
+        </splitter>
+    </window>
+</layout>
+}
+Root {
+ inputs 0
+ name C:/Users/kTavasoli/.nuke/templates/CG_tree_v001.nk
+ fps 25
+ format "2048 1152 0 0 2048 1152 1 2K_16:9"
+ proxy_type scale
+ proxy_format "1024 778 0 0 1024 778 1 1K_Super_35(full-ap)"
+ colorManagement Nuke
+ workingSpaceLUT linear
+ monitorLut sRGB
+ int8Lut sRGB
+ int16Lut sRGB
+ logLut Cineon
+ floatLut linear
+}
+BackdropNode {
+ inputs 0
+ name BackdropNode28
+ tile_color 0x575757ff
+ note_font_size 42
+ xpos -1748
+ ypos -7048
+ bdwidth 3587
+ bdheight 13664
+ z_order -2
+}
+BackdropNode {
+ inputs 0
+ name BackdropNode29
+ tile_color 0x2f2f2fff
+ label CG
+ note_font_size 42
+ xpos -445
+ ypos -6984
+ bdwidth 1976
+ bdheight 12395
+ z_order -1
+}
+BackdropNode {
+ inputs 0
+ name BackdropNode30
+ tile_color 0x282828ff
+ label GI
+ note_font_size 42
+ xpos -124
+ ypos -5076
+ bdwidth 1138
+ bdheight 1339
+}
+BackdropNode {
+ inputs 0
+ name BackdropNode31
+ tile_color 0x282828ff
+ label Emmision
+ note_font_size 42
+ xpos -124
+ ypos 2164
+ bdwidth 1138
+ bdheight 1339
+}
+BackdropNode {
+ inputs 0
+ name BackdropNode32
+ tile_color 0xaaaaaa00
+ label Crypto
+ note_font_size 42
+ xpos -1180
+ ypos -6868
+ bdwidth 417
+ bdheight 419
+}
+BackdropNode {
+ inputs 0
+ name BackdropNode33
+ tile_color 0xaaaaaa00
+ label "Additional AOVs"
+ note_font_size 42
+ xpos -1706
+ ypos -6863
+ bdwidth 417
+ bdheight 419
+}
+BackdropNode {
+ inputs 0
+ name BackdropNode34
+ tile_color 0x282828ff
+ label Refraction
+ note_font_size 42
+ xpos -114
+ ypos 759
+ bdwidth 1138
+ bdheight 1339
+}
+BackdropNode {
+ inputs 0
+ name BackdropNode35
+ tile_color 0x626262ff
+ label RENDER
+ note_font_size 42
+ xpos 1006
+ ypos -6910
+ bdwidth 252
+ bdheight 283
+}
+BackdropNode {
+ inputs 0
+ name BackdropNode36
+ tile_color 0x282828ff
+ label "Diffuse Lighting"
+ note_font_size 42
+ xpos -123
+ ypos -6474
+ bdwidth 1138
+ bdheight 1339
+}
+BackdropNode {
+ inputs 0
+ name BackdropNode37
+ tile_color 0x282828ff
+ label SSS
+ note_font_size 42
+ xpos -124
+ ypos -2245
+ bdwidth 1138
+ bdheight 1339
+}
+BackdropNode {
+ inputs 0
+ name BackdropNode38
+ tile_color 0x282828ff
+ label "Volume\n"
+ note_font_size 42
+ xpos -124
+ ypos 3624
+ bdwidth 1138
+ bdheight 1339
+}
+BackdropNode {
+ inputs 0
+ name BackdropNode39
+ tile_color 0x282828ff
+ label Specular
+ note_font_size 42
+ xpos -124
+ ypos -3657
+ bdwidth 1138
+ bdheight 1339
+}
+BackdropNode {
+ inputs 0
+ name BackdropNode40
+ tile_color 0x282828ff
+ label Reflection
+ note_font_size 42
+ xpos -124
+ ypos -702
+ bdwidth 1138
+ bdheight 1339
+}
+Dot {
+ inputs 0
+ name Dot81
+ xpos 1131
+ ypos -6695
+}
+Dot {
+ name Dot79
+ xpos 1131
+ ypos -6560
+}
+set N30489400 [stack 0]
+Dot {
+ name Dot87
+ xpos -190
+ ypos -6560
+}
+Dot {
+ name Dot88
+ xpos -190
+ ypos -6394
+}
+set N30488c00 [stack 0]
+Dot {
+ name Dot89
+ xpos -190
+ ypos -5001
+}
+set N30488800 [stack 0]
+Dot {
+ name Dot90
+ xpos -190
+ ypos -3570
+}
+set N30488400 [stack 0]
+Dot {
+ name Dot91
+ xpos -190
+ ypos -2151
+}
+set N30488000 [stack 0]
+Dot {
+ name Dot92
+ xpos -190
+ ypos -608
+}
+set N27e0fc00 [stack 0]
+Dot {
+ name Dot93
+ xpos -180
+ ypos 847
+}
+set N27e0f800 [stack 0]
+Dot {
+ name Dot94
+ xpos -180
+ ypos 2253
+}
+set N27e0f400 [stack 0]
+Dot {
+ name Dot95
+ xpos -180
+ ypos 3713
+}
+set N27e0f000 [stack 0]
+Dot {
+ name Dot96
+ xpos -180
+ ypos 5720
+}
+Remove {
+ operation keep
+ channels alpha
+ name Remove19
+ xpos 570
+ ypos 5711
+}
+push $N27e0f000
+Dot {
+ name Dot97
+ xpos 442
+ ypos 3713
+}
+set N27e0e400 [stack 0]
+Dot {
+ name Dot98
+ xpos 442
+ ypos 3777
+}
+push $N27e0e400
+add_layer {VolumeLighting1 VolumeLighting1.red VolumeLighting1.green VolumeLighting1.blue}
+Shuffle2 {
+ fromInput1 {{0} B}
+ in1 VolumeLighting1
+ fromInput2 {{0} B}
+ mappings "4 VolumeLighting1.red 0 0 rgba.red 0 0 VolumeLighting1.green 0 1 rgba.green 0 1 VolumeLighting1.blue 0 2 rgba.blue 0 2 black -1 -1 rgba.alpha 0 3"
+ name Shuffle9
+ xpos 539
+ ypos 3710
+}
+Copy {
+ inputs 2
+ from0 rgba.alpha
+ to0 rgba.alpha
+ name Copy20
+ xpos 539
+ ypos 3768
+}
+Remove {
+ operation keep
+ channels rgba
+ name Remove20
+ xpos 539
+ ypos 3838
+}
+Dot {
+ name Dot99
+ xpos 572
+ ypos 4860
+}
+push $N27e0f400
+Dot {
+ name Dot101
+ xpos 442
+ ypos 2253
+}
+set N27e26c00 [stack 0]
+Dot {
+ name Dot102
+ xpos 442
+ ypos 2317
+}
+push $N27e26c00
+add_layer {Emission Emission.red Emission.green Emission.blue}
+Shuffle2 {
+ fromInput1 {{0} B}
+ in1 Emission
+ fromInput2 {{0} B}
+ mappings "4 Emission.red 0 0 rgba.red 0 0 Emission.green 0 1 rgba.green 0 1 Emission.blue 0 2 rgba.blue 0 2 black -1 -1 rgba.alpha 0 3"
+ name Shuffle10
+ xpos 539
+ ypos 2250
+}
+Copy {
+ inputs 2
+ from0 rgba.alpha
+ to0 rgba.alpha
+ name Copy21
+ xpos 539
+ ypos 2308
+}
+Remove {
+ operation keep
+ channels rgba
+ name Remove21
+ xpos 539
+ ypos 2378
+}
+Dot {
+ name Dot105
+ xpos 573
+ ypos 3400
+}
+push $N27e0f800
+Dot {
+ name Dot106
+ xpos 442
+ ypos 847
+}
+set N27e4d400 [stack 0]
+Dot {
+ name Dot107
+ xpos 442
+ ypos 911
+}
+push $N27e4d400
+add_layer {Refractions Refractions.red Refractions.green Refractions.blue}
+Shuffle2 {
+ fromInput1 {{0} B}
+ in1 Refractions
+ fromInput2 {{0} B}
+ mappings "4 Refractions.red 0 0 rgba.red 0 0 Refractions.green 0 1 rgba.green 0 1 Refractions.blue 0 2 rgba.blue 0 2 black -1 -1 rgba.alpha 0 3"
+ name Shuffle11
+ xpos 539
+ ypos 844
+}
+Copy {
+ inputs 2
+ from0 rgba.alpha
+ to0 rgba.alpha
+ name Copy22
+ xpos 539
+ ypos 902
+}
+Remove {
+ operation keep
+ channels rgba
+ name Remove22
+ xpos 539
+ ypos 972
+}
+Dot {
+ name Dot110
+ xpos 573
+ ypos 2000
+}
+push $N27e0fc00
+Dot {
+ name Dot111
+ xpos -63
+ ypos -608
+}
+set N27e73c00 [stack 0]
+Dot {
+ name Dot112
+ xpos -63
+ ypos -544
+}
+push $N27e73c00
+add_layer {Reflections Reflections.red Reflections.green Reflections.blue}
+Shuffle2 {
+ fromInput1 {{0} B}
+ in1 Reflections
+ fromInput2 {{0} B}
+ mappings "4 Reflections.red 0 0 rgba.red 0 0 Reflections.green 0 1 rgba.green 0 1 Reflections.blue 0 2 rgba.blue 0 2 black -1 -1 rgba.alpha 0 3"
+ name Shuffle12
+ xpos 529
+ ypos -611
+}
+Copy {
+ inputs 2
+ from0 rgba.alpha
+ to0 rgba.alpha
+ name Copy23
+ xpos 529
+ ypos -553
+}
+Remove {
+ operation keep
+ channels rgba
+ name Remove23
+ xpos 529
+ ypos -483
+}
+Dot {
+ name Dot113
+ xpos 563
+ ypos 534
+}
+push $N30488000
+Dot {
+ name Dot115
+ xpos -63
+ ypos -2151
+}
+set N27e72400 [stack 0]
+Dot {
+ name Dot116
+ xpos -63
+ ypos -2087
+}
+push $N27e72400
+add_layer {SSS SSS.red SSS.green SSS.blue}
+Shuffle2 {
+ fromInput1 {{0} B}
+ in1 SSS
+ fromInput2 {{0} B}
+ mappings "4 SSS.red 0 0 rgba.red 0 0 SSS.green 0 1 rgba.green 0 1 SSS.blue 0 2 rgba.blue 0 2 black -1 -1 rgba.alpha 0 3"
+ name Shuffle13
+ xpos 529
+ ypos -2154
+}
+Copy {
+ inputs 2
+ from0 rgba.alpha
+ to0 rgba.alpha
+ name Copy24
+ xpos 529
+ ypos -2096
+}
+Remove {
+ operation keep
+ channels rgba
+ name Remove24
+ xpos 529
+ ypos -2026
+}
+Dot {
+ name Dot120
+ xpos 563
+ ypos -1009
+}
+push $N30488400
+Dot {
+ name Dot121
+ xpos -63
+ ypos -3570
+}
+set N27e94c00 [stack 0]
+Dot {
+ name Dot122
+ xpos -63
+ ypos -3506
+}
+push $N27e94c00
+add_layer {SpecularLighting SpecularLighting.red SpecularLighting.green SpecularLighting.blue}
+Shuffle2 {
+ fromInput1 {{0} B}
+ in1 SpecularLighting
+ fromInput2 {{0} B}
+ mappings "4 SpecularLighting.red 0 0 rgba.red 0 0 SpecularLighting.green 0 1 rgba.green 0 1 SpecularLighting.blue 0 2 rgba.blue 0 2 black -1 -1 rgba.alpha 0 3"
+ name Shuffle14
+ xpos 529
+ ypos -3573
+}
+Copy {
+ inputs 2
+ from0 rgba.alpha
+ to0 rgba.alpha
+ name Copy25
+ xpos 529
+ ypos -3515
+}
+Remove {
+ operation keep
+ channels rgba
+ name Remove25
+ xpos 529
+ ypos -3445
+}
+Dot {
+ name Dot123
+ xpos 563
+ ypos -2421
+}
+push $N30488800
+Dot {
+ name Dot124
+ xpos -63
+ ypos -5001
+}
+set N27ebf400 [stack 0]
+Dot {
+ name Dot125
+ xpos -63
+ ypos -4937
+}
+push $N27ebf400
+add_layer {GI GI.red GI.green GI.blue}
+Shuffle2 {
+ fromInput1 {{0} B}
+ in1 GI
+ fromInput2 {{0} B}
+ mappings "4 GI.red 0 0 rgba.red 0 0 GI.green 0 1 rgba.green 0 1 GI.blue 0 2 rgba.blue 0 2 black -1 -1 rgba.alpha 0 3"
+ name Shuffle15
+ xpos 529
+ ypos -5004
+}
+Copy {
+ inputs 2
+ from0 rgba.alpha
+ to0 rgba.alpha
+ name Copy26
+ xpos 529
+ ypos -4946
+}
+Remove {
+ operation keep
+ channels rgba
+ name Remove26
+ xpos 529
+ ypos -4876
+}
+Dot {
+ name Dot126
+ xpos 563
+ ypos -3840
+}
+push $N30488c00
+Dot {
+ name Dot127
+ xpos -63
+ ypos -6394
+}
+set N27eddc00 [stack 0]
+Dot {
+ name Dot128
+ xpos -63
+ ypos -6330
+}
+push $N27eddc00
+add_layer {DiffuseLighting DiffuseLighting.red DiffuseLighting.green DiffuseLighting.blue}
+Shuffle2 {
+ fromInput1 {{0} B}
+ in1 DiffuseLighting
+ fromInput2 {{0} B}
+ mappings "4 DiffuseLighting.red 0 0 rgba.red 0 0 DiffuseLighting.green 0 1 rgba.green 0 1 DiffuseLighting.blue 0 2 rgba.blue 0 2 black -1 -1 rgba.alpha 0 3"
+ name Shuffle16
+ xpos 529
+ ypos -6397
+}
+Copy {
+ inputs 2
+ from0 rgba.alpha
+ to0 rgba.alpha
+ name Copy27
+ xpos 529
+ ypos -6339
+}
+Remove {
+ operation keep
+ channels rgba
+ name Remove27
+ xpos 529
+ ypos -6269
+}
+Dot {
+ name Dot129
+ xpos 563
+ ypos -5239
+}
+push $N30489400
+Remove {
+ name Remove28
+ xpos 1097
+ ypos -6044
+}
+Merge2 {
+ inputs 2
+ operation plus
+ name Merge66
+ label "\[value mix]"
+ xpos 1097
+ ypos -5248
+}
+Merge2 {
+ inputs 2
+ operation plus
+ name Merge67
+ label "\[value mix]"
+ xpos 1097
+ ypos -3849
+}
+Merge2 {
+ inputs 2
+ operation plus
+ name Merge68
+ label "\[value mix]"
+ xpos 1097
+ ypos -2430
+}
+Merge2 {
+ inputs 2
+ operation plus
+ name Merge69
+ label "\[value mix]"
+ xpos 1097
+ ypos -1018
+}
+Merge2 {
+ inputs 2
+ operation plus
+ name Merge70
+ label "\[value mix]"
+ xpos 1097
+ ypos 525
+}
+Merge2 {
+ inputs 2
+ operation plus
+ name Merge71
+ label "\[value mix]"
+ xpos 1107
+ ypos 1991
+}
+Merge2 {
+ inputs 2
+ operation plus
+ name Merge72
+ label "\[value mix]"
+ xpos 1097
+ ypos 3391
+}
+Merge2 {
+ inputs 2
+ operation plus
+ name Merge73
+ label "\[value mix]"
+ xpos 1097
+ ypos 4851
+}
+Copy {
+ inputs 2
+ from0 rgba.alpha
+ to0 rgba.alpha
+ name Copy28
+ xpos 1097
+ ypos 5711
+}
+Premult {
+ name Premult6
+ xpos 1097
+ ypos 6116
+}
+Dot {
+ inputs 0
+ name Dot80
+ xpos -975
+ ypos -6589
+}
+Dot {
+ name Dot86
+ xpos -975
+ ypos 5911
+}

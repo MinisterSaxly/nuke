@@ -1,0 +1,103 @@
+#! C:/Program Files/Nuke12.1v2/nuke-12.1.2.dll -nx
+version 12.1 v2
+add_layer {SSS SSS.red SSS.green SSS.blue}
+Gizmo {
+ inputs 2
+ tile_color 0x734a74ff
+ label "\[value Layer]"
+ addUserKnob {20 User}
+ addUserKnob {26 SelectLyaer l "Select layer"}
+ addUserKnob {41 Layer T Shuffle1.in}
+ addUserKnob {26 _1 l "" +STARTLINE}
+ addUserKnob {41 saturation T ColorCorrect.saturation}
+ addUserKnob {41 contrast T ColorCorrect.contrast}
+ addUserKnob {41 gamma T ColorCorrect.gamma}
+ addUserKnob {41 gain T ColorCorrect.gain}
+ addUserKnob {41 offset T ColorCorrect.offset}
+ addUserKnob {6 View l "View layer" +STARTLINE}
+ addUserKnob {26 _2 l "" +STARTLINE}
+ addUserKnob {26 aobut l "" +STARTLINE T "AOV CC v1.0 by Kian Tavasoli"}
+}
+ Input {
+  inputs 0
+  name Mask
+  selected true
+  xpos 463
+  ypos -570
+  number 1
+ }
+ Dot {
+  name Dot4
+  xpos 497
+  ypos -468
+ }
+ Input {
+  inputs 0
+  name CG
+  xpos 802
+  ypos -684
+ }
+ Dot {
+  name Dot2
+  xpos 836
+  ypos -636
+ }
+set Ncf920400 [stack 0]
+ Dot {
+  name Dot3
+  xpos 674
+  ypos -636
+ }
+ Shuffle {
+  in SSS
+  name Shuffle1
+  xpos 640
+  ypos -526
+ }
+set Ncf947c00 [stack 0]
+ ColorCorrect {
+  inputs 1+1
+  name ColorCorrect
+  xpos 640
+  ypos -471
+ }
+ Dot {
+  name Dot5
+  xpos 674
+  ypos -391
+ }
+set Ncf947400 [stack 0]
+push $Ncf947400
+push $Ncf947c00
+push $Ncf920400
+ Merge2 {
+  inputs 2
+  operation from
+  bbox B
+  name Merge1
+  label "\[value mix]"
+  xpos 802
+  ypos -532
+ }
+ Merge2 {
+  inputs 2
+  operation plus
+  bbox A
+  name Merge2
+  label "\[value mix]"
+  xpos 802
+  ypos -400
+ }
+ Switch {
+  inputs 2
+  which {{parent.View}}
+  name layer_bool
+  xpos 802
+  ypos -311
+ }
+ Output {
+  name Output1
+  xpos 802
+  ypos -160
+ }
+end_group

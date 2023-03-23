@@ -1,0 +1,1411 @@
+#! C:/Program Files/Nuke12.1v2/nuke-12.1.2.dll -nx
+version 12.1 v2
+define_window_layout_xml {<?xml version="1.0" encoding="UTF-8"?>
+<layout version="1.0">
+    <window x="-1" y="-9" w="2560" h="1373" maximized="1" screen="0">
+        <splitter orientation="1">
+            <split size="40"/>
+            <dock id="" hideTitles="1" activePageId="Toolbar.1">
+                <page id="Toolbar.1"/>
+            </dock>
+            <split size="1805" stretch="1"/>
+            <splitter orientation="2">
+                <split size="0"/>
+                <dock id=""/>
+                <split size="1331"/>
+                <splitter orientation="1">
+                    <split size="1805"/>
+                    <dock id="" activePageId="DAG.1" focus="true">
+                        <page id="DAG.1"/>
+                        <page id="Curve Editor.1"/>
+                        <page id="DopeSheet.1"/>
+                        <page id="DAG.2"/>
+                    </dock>
+                </splitter>
+            </splitter>
+            <split size="707"/>
+            <splitter orientation="2">
+                <split size="1335"/>
+                <dock id="" activePageId="Properties.1">
+                    <page id="Properties.1"/>
+                </dock>
+            </splitter>
+        </splitter>
+    </window>
+    <window x="4628" y="205" w="641" h="511" screen="2">
+        <splitter orientation="2">
+            <split size="511"/>
+            <dock id="" activePageId="Viewer.1">
+                <page id="Viewer.2"/>
+                <page id="Viewer.1"/>
+            </dock>
+        </splitter>
+    </window>
+</layout>
+}
+Root {
+ inputs 0
+ name C:/Users/kTavasoli/.nuke/templates/CG_mixer_v002.nk
+ frame 16
+ fps 25
+ format "2048 1152 0 0 2048 1152 1 2K_16:9"
+ proxy_type scale
+ proxy_format "1024 778 0 0 1024 778 1 1K_Super_35(full-ap)"
+ colorManagement Nuke
+ workingSpaceLUT linear
+ monitorLut sRGB
+ int8Lut sRGB
+ int16Lut sRGB
+ logLut Cineon
+ floatLut linear
+}
+Read {
+ inputs 0
+ file_type exr
+ file X:/Projects/ZGHm22_ANM03_Saturn_Tech_Hase/ZG22A03_Shots/ZG22A03_SH_Tech_Hase/SH_Tech_Hase_INPUT/3D/beauty/v010/ZG22A03_SH_Tech_Hase_LSRrnd_v010_cWa.Cryptomatte_mat.1140.exr
+ format "1920 1080 0 0 1920 1080 1 HD_1080"
+ origset true
+ name Read30
+ xpos 438
+ ypos -7056
+}
+Dot {
+ name Dot1
+ xpos 472
+ ypos -6900
+}
+set Nad167000 [stack 0]
+Read {
+ inputs 0
+ file_type exr
+ file X:/Projects/ZGHm22_ANM03_Saturn_Tech_Hase/ZG22A03_Shots/ZG22A03_SH_Tech_Hase/SH_Tech_Hase_INPUT/3D/beauty/v010/ZG22A03_SH_Tech_Hase_LSRrnd_v010_cWa.1140.exr
+ format "1920 1080 0 0 1920 1080 1 HD_1080"
+ origset true
+ name Read26
+ xpos 707
+ ypos -7061
+}
+Group {
+ inputs 2
+ name CG_Mixer
+ tile_color 0x3a648fff
+ xpos 707
+ ypos -6903
+ addUserKnob {20 Passes}
+ addUserKnob {26 Diffuselight_label l "Diffuse Light"}
+ addUserKnob {6 view l View +STARTLINE}
+ addUserKnob {41 saturation_1 l saturation T Diffuselight_CC.saturation}
+ addUserKnob {41 contrast_1 l contrast T Diffuselight_CC.contrast}
+ addUserKnob {41 gamma T Diffuselight_CC.gamma}
+ addUserKnob {41 gain_1 l gain T Diffuselight_CC.gain}
+ addUserKnob {41 offset_1 l offset T Diffuselight_CC.offset}
+ addUserKnob {26 Divider l "" +STARTLINE}
+ addUserKnob {26 GI_label l GI}
+ addUserKnob {6 Viewlayer l View +STARTLINE}
+ addUserKnob {41 saturation_2 l saturation T GI_CC.saturation}
+ addUserKnob {41 contrast_2 l contrast T GI_CC.contrast}
+ addUserKnob {41 gamma_1 l gamma T GI_CC.gamma}
+ addUserKnob {41 gain_2 l gain T GI_CC.gain}
+ addUserKnob {41 offset_2 l offset T GI_CC.offset}
+ addUserKnob {26 divide l "" +STARTLINE}
+ addUserKnob {26 Specular_label l Specular}
+ addUserKnob {6 View +STARTLINE}
+ addUserKnob {41 saturation_3 l saturation T Specular_CC.saturation}
+ addUserKnob {41 contrast_3 l contrast T Specular_CC.contrast}
+ addUserKnob {41 gamma_2 l gamma T Specular_CC.gamma}
+ addUserKnob {41 gain_3 l gain T Specular_CC.gain}
+ addUserKnob {41 offset_3 l offset T Specular_CC.offset}
+ addUserKnob {26 "" +STARTLINE}
+ addUserKnob {26 SSS}
+ addUserKnob {6 View_1 l View +STARTLINE}
+ addUserKnob {41 saturation_4 l saturation T SSS_CC.saturation}
+ addUserKnob {41 contrast_4 l contrast T SSS_CC.contrast}
+ addUserKnob {41 gamma_3 l gamma T SSS_CC.gamma}
+ addUserKnob {41 gain_4 l gain T SSS_CC.gain}
+ addUserKnob {41 offset_4 l offset T SSS_CC.offset}
+ addUserKnob {26 "" +STARTLINE}
+ addUserKnob {26 Reflection}
+ addUserKnob {6 View_2 l View +STARTLINE}
+ addUserKnob {41 saturation_5 l saturation T Reflection_CC.saturation}
+ addUserKnob {41 contrast_5 l contrast T Reflection_CC.contrast}
+ addUserKnob {41 gamma_4 l gamma T Reflection_CC.gamma}
+ addUserKnob {41 gain_5 l gain T Reflection_CC.gain}
+ addUserKnob {41 offset_5 l offset T Reflection_CC.offset}
+ addUserKnob {26 "" +STARTLINE}
+ addUserKnob {26 Emission_label l Emission}
+ addUserKnob {6 View_3 l View +STARTLINE}
+ addUserKnob {41 saturation T Emission_CC.saturation}
+ addUserKnob {41 contrast T Emission_CC.contrast}
+ addUserKnob {41 gamma_5 l gamma T Emission_CC.gamma}
+ addUserKnob {41 gain T Emission_CC.gain}
+ addUserKnob {41 offset T Emission_CC.offset}
+ addUserKnob {26 "" +STARTLINE}
+ addUserKnob {26 Volume l "Volume Light"}
+ addUserKnob {6 View_4 l View +STARTLINE}
+ addUserKnob {41 saturation_6 l saturation T Vol_CC.saturation}
+ addUserKnob {41 contrast_6 l contrast T Vol_CC.contrast}
+ addUserKnob {41 gamma_6 l gamma T Vol_CC.gamma}
+ addUserKnob {41 gain_6 l gain T Vol_CC.gain}
+ addUserKnob {41 offset_6 l offset T Vol_CC.offset}
+ addUserKnob {26 _1 l "" +STARTLINE}
+ addUserKnob {26 About l "" +STARTLINE T "CG Mixer v1.0 by Kian Tavasoli"}
+}
+ BackdropNode {
+  inputs 0
+  name BackdropNode28
+  tile_color 0x575757ff
+  note_font_size 42
+  xpos -1244
+  ypos -7294
+  bdwidth 3587
+  bdheight 13664
+  z_order -2
+ }
+ BackdropNode {
+  inputs 0
+  name BackdropNode29
+  tile_color 0x2f2f2fff
+  label CG
+  note_font_size 42
+  xpos 59
+  ypos -7230
+  bdwidth 1976
+  bdheight 12395
+  z_order -1
+ }
+ BackdropNode {
+  inputs 0
+  name BackdropNode30
+  tile_color 0x282828ff
+  label GI
+  note_font_size 42
+  xpos 391
+  ypos -5335
+  bdwidth 1138
+  bdheight 1339
+ }
+ BackdropNode {
+  inputs 0
+  name BackdropNode31
+  tile_color 0x282828ff
+  label Emmision
+  note_font_size 42
+  xpos 380
+  ypos 1918
+  bdwidth 1138
+  bdheight 1339
+ }
+ BackdropNode {
+  inputs 0
+  name BackdropNode32
+  tile_color 0xaaaaaa00
+  label Crypto
+  note_font_size 42
+  xpos -676
+  ypos -7114
+  bdwidth 417
+  bdheight 419
+ }
+ BackdropNode {
+  inputs 0
+  name BackdropNode33
+  tile_color 0xaaaaaa00
+  label "Additional AOVs"
+  note_font_size 42
+  xpos -1202
+  ypos -7109
+  bdwidth 417
+  bdheight 419
+ }
+ BackdropNode {
+  inputs 0
+  name BackdropNode34
+  tile_color 0x282828ff
+  label Refraction
+  note_font_size 42
+  xpos 390
+  ypos 513
+  bdwidth 1138
+  bdheight 1339
+ }
+ BackdropNode {
+  inputs 0
+  name BackdropNode35
+  tile_color 0x626262ff
+  label RENDER
+  note_font_size 42
+  xpos 1510
+  ypos -7156
+  bdwidth 252
+  bdheight 283
+ }
+ BackdropNode {
+  inputs 0
+  name BackdropNode36
+  tile_color 0x282828ff
+  label "Diffuse Lighting"
+  note_font_size 42
+  xpos 381
+  ypos -6720
+  bdwidth 1138
+  bdheight 1339
+ }
+ BackdropNode {
+  inputs 0
+  name BackdropNode37
+  tile_color 0x282828ff
+  label SSS
+  note_font_size 42
+  xpos 380
+  ypos -2491
+  bdwidth 1138
+  bdheight 1339
+ }
+ BackdropNode {
+  inputs 0
+  name BackdropNode38
+  tile_color 0x282828ff
+  label "Volume\n"
+  note_font_size 42
+  xpos 380
+  ypos 3378
+  bdwidth 1138
+  bdheight 1339
+ }
+ BackdropNode {
+  inputs 0
+  name BackdropNode39
+  tile_color 0x282828ff
+  label Specular
+  note_font_size 42
+  xpos 380
+  ypos -3903
+  bdwidth 1138
+  bdheight 1339
+ }
+ BackdropNode {
+  inputs 0
+  name BackdropNode40
+  tile_color 0x282828ff
+  label Reflection
+  note_font_size 42
+  xpos 380
+  ypos -948
+  bdwidth 1138
+  bdheight 1339
+ }
+ Input {
+  inputs 0
+  name Cryptomatte
+  label Cryptomatte
+  xpos -505
+  ypos -6893
+  number 1
+ }
+ Dot {
+  name Dot80
+  xpos -471
+  ypos -6835
+ }
+ Dot {
+  name Dot86
+  xpos -471
+  ypos 5665
+ }
+ Input {
+  inputs 0
+  name CG
+  xpos 1601
+  ypos -7001
+ }
+ Dot {
+  name Dot81
+  xpos 1635
+  ypos -6941
+ }
+ Dot {
+  name Dot79
+  xpos 1635
+  ypos -6806
+ }
+set N6052e400 [stack 0]
+ Dot {
+  name Dot87
+  xpos 314
+  ypos -6806
+ }
+ Dot {
+  name Dot88
+  xpos 314
+  ypos -6640
+ }
+set N6054dc00 [stack 0]
+ Dot {
+  name Dot89
+  xpos 314
+  ypos -5247
+ }
+set N6054d800 [stack 0]
+ Dot {
+  name Dot90
+  xpos 314
+  ypos -3816
+ }
+set N6054d400 [stack 0]
+ Dot {
+  name Dot91
+  xpos 314
+  ypos -2397
+ }
+set N6054d000 [stack 0]
+ Dot {
+  name Dot92
+  xpos 314
+  ypos -854
+ }
+set N6054cc00 [stack 0]
+ Dot {
+  name Dot93
+  xpos 324
+  ypos 601
+ }
+set N6054c800 [stack 0]
+ Dot {
+  name Dot94
+  xpos 324
+  ypos 2007
+ }
+set N6054c400 [stack 0]
+ Dot {
+  name Dot95
+  xpos 324
+  ypos 3467
+ }
+set N6054c000 [stack 0]
+ Dot {
+  name Dot97
+  xpos 946
+  ypos 3467
+ }
+set N60563400 [stack 0]
+ Dot {
+  name Dot98
+  xpos 946
+  ypos 3531
+ }
+push $N60563400
+add_layer {VolumeLighting VolumeLighting.red VolumeLighting.green VolumeLighting.blue}
+ Shuffle2 {
+  fromInput1 {{0} B}
+  in1 VolumeLighting
+  fromInput2 {{0} B}
+  mappings "4 VolumeLighting.red 0 0 rgba.red 0 0 VolumeLighting.green 0 1 rgba.green 0 1 VolumeLighting.blue 0 2 rgba.blue 0 2 black -1 -1 rgba.alpha 0 3"
+  name Shuffle9
+  xpos 1043
+  ypos 3464
+ }
+ Copy {
+  inputs 2
+  from0 rgba.alpha
+  to0 rgba.alpha
+  name Copy20
+  xpos 1043
+  ypos 3522
+ }
+ Remove {
+  operation keep
+  channels rgba
+  name Remove20
+  xpos 1043
+  ypos 3592
+ }
+ ColorCorrect {
+  shadows 0
+  name Vol_CC
+  xpos 1043
+  ypos 3680
+ }
+ Dot {
+  name Dot99
+  xpos 1076
+  ypos 4614
+ }
+set N6058bc00 [stack 0]
+ Dot {
+  name Dot36
+  xpos 1482
+  ypos 7935
+  hide_input true
+ }
+push $N6054c400
+ Dot {
+  name Dot101
+  xpos 946
+  ypos 2007
+ }
+set N6058b800 [stack 0]
+ Dot {
+  name Dot102
+  xpos 946
+  ypos 2071
+ }
+push $N6058b800
+add_layer {Emission Emission.red Emission.green Emission.blue}
+ Shuffle2 {
+  fromInput1 {{0} B}
+  in1 Emission
+  fromInput2 {{0} B}
+  mappings "4 Emission.red 0 0 rgba.red 0 0 Emission.green 0 1 rgba.green 0 1 Emission.blue 0 2 rgba.blue 0 2 black -1 -1 rgba.alpha 0 3"
+  name Shuffle10
+  xpos 1043
+  ypos 2004
+ }
+ Copy {
+  inputs 2
+  from0 rgba.alpha
+  to0 rgba.alpha
+  name Copy21
+  xpos 1043
+  ypos 2062
+ }
+ Remove {
+  operation keep
+  channels rgba
+  name Remove21
+  xpos 1043
+  ypos 2132
+ }
+ ColorCorrect {
+  shadows 0
+  name Emission_CC
+  xpos 1043
+  ypos 2184
+ }
+ Dot {
+  name Dot105
+  xpos 1077
+  ypos 3154
+ }
+set N6058a000 [stack 0]
+ Dot {
+  name Dot37
+  xpos 1482
+  ypos 7638
+  hide_input true
+ }
+push $N6054c800
+ Dot {
+  name Dot106
+  xpos 946
+  ypos 601
+ }
+set N605bbc00 [stack 0]
+ Dot {
+  name Dot107
+  xpos 946
+  ypos 665
+ }
+push $N605bbc00
+add_layer {Refractions Refractions.red Refractions.green Refractions.blue}
+ Shuffle2 {
+  fromInput1 {{0} B}
+  in1 Refractions
+  fromInput2 {{0} B}
+  mappings "4 Refractions.red 0 0 rgba.red 0 0 Refractions.green 0 1 rgba.green 0 1 Refractions.blue 0 2 rgba.blue 0 2 black -1 -1 rgba.alpha 0 3"
+  name Shuffle11
+  xpos 1043
+  ypos 598
+ }
+ Copy {
+  inputs 2
+  from0 rgba.alpha
+  to0 rgba.alpha
+  name Copy22
+  xpos 1043
+  ypos 656
+ }
+ Remove {
+  operation keep
+  channels rgba
+  name Remove22
+  xpos 1043
+  ypos 726
+ }
+ ColorCorrect {
+  shadows 0
+  name Refraction_CC
+  xpos 1043
+  ypos 861
+ }
+ Dot {
+  name Dot110
+  xpos 1077
+  ypos 1754
+ }
+set N605ba400 [stack 0]
+ Dot {
+  name Dot26
+  xpos 1482
+  ypos 7350
+  hide_input true
+ }
+push $N6054cc00
+ Dot {
+  name Dot111
+  xpos 441
+  ypos -854
+ }
+set N605ba000 [stack 0]
+ Dot {
+  name Dot112
+  xpos 441
+  ypos -790
+ }
+push $N605ba000
+add_layer {Reflections Reflections.red Reflections.green Reflections.blue}
+ Shuffle2 {
+  fromInput1 {{0} B}
+  in1 Reflections
+  fromInput2 {{0} B}
+  mappings "4 Reflections.red 0 0 rgba.red 0 0 Reflections.green 0 1 rgba.green 0 1 Reflections.blue 0 2 rgba.blue 0 2 black -1 -1 rgba.alpha 0 3"
+  name Shuffle12
+  xpos 1033
+  ypos -857
+ }
+ Copy {
+  inputs 2
+  from0 rgba.alpha
+  to0 rgba.alpha
+  name Copy23
+  xpos 1033
+  ypos -799
+ }
+ Remove {
+  operation keep
+  channels rgba
+  name Remove23
+  xpos 1033
+  ypos -729
+ }
+ ColorCorrect {
+  shadows 0
+  name Reflection_CC
+  xpos 1033
+  ypos -545
+ }
+ Dot {
+  name Dot113
+  xpos 1067
+  ypos 288
+ }
+set N605e6800 [stack 0]
+ Dot {
+  name Dot27
+  xpos 1482
+  ypos 7051
+  hide_input true
+ }
+push $N6054d000
+ Dot {
+  name Dot115
+  xpos 441
+  ypos -2397
+ }
+set N605e6400 [stack 0]
+ Dot {
+  name Dot116
+  xpos 441
+  ypos -2333
+ }
+push $N605e6400
+add_layer {SSS SSS.red SSS.green SSS.blue}
+ Shuffle2 {
+  fromInput1 {{0} B}
+  in1 SSS
+  fromInput2 {{0} B}
+  mappings "4 SSS.red 0 0 rgba.red 0 0 SSS.green 0 1 rgba.green 0 1 SSS.blue 0 2 rgba.blue 0 2 black -1 -1 rgba.alpha 0 3"
+  name Shuffle13
+  xpos 1033
+  ypos -2400
+ }
+ Copy {
+  inputs 2
+  from0 rgba.alpha
+  to0 rgba.alpha
+  name Copy24
+  xpos 1033
+  ypos -2342
+ }
+ Remove {
+  operation keep
+  channels rgba
+  name Remove24
+  xpos 1033
+  ypos -2272
+ }
+ ColorCorrect {
+  shadows 0
+  name SSS_CC
+  xpos 1033
+  ypos -2168
+ }
+ Dot {
+  name Dot120
+  xpos 1067
+  ypos -1255
+ }
+set N60610c00 [stack 0]
+ Dot {
+  name Dot28
+  xpos 1482
+  ypos 6754
+  hide_input true
+ }
+push $N6054d400
+ Dot {
+  name Dot121
+  xpos 441
+  ypos -3816
+ }
+set N60610800 [stack 0]
+ Dot {
+  name Dot122
+  xpos 441
+  ypos -3752
+ }
+push $N60610800
+add_layer {SpecularLighting SpecularLighting.red SpecularLighting.green SpecularLighting.blue}
+ Shuffle2 {
+  fromInput1 {{0} B}
+  in1 SpecularLighting
+  fromInput2 {{0} B}
+  mappings "4 SpecularLighting.red 0 0 rgba.red 0 0 SpecularLighting.green 0 1 rgba.green 0 1 SpecularLighting.blue 0 2 rgba.blue 0 2 black -1 -1 rgba.alpha 0 3"
+  name Shuffle14
+  xpos 1033
+  ypos -3819
+ }
+ Copy {
+  inputs 2
+  from0 rgba.alpha
+  to0 rgba.alpha
+  name Copy25
+  xpos 1033
+  ypos -3761
+ }
+ Remove {
+  operation keep
+  channels rgba
+  name Remove25
+  xpos 1033
+  ypos -3691
+ }
+ ColorCorrect {
+  shadows 0
+  name Specular_CC
+  xpos 1033
+  ypos -3627
+ }
+ Dot {
+  name Dot123
+  xpos 1067
+  ypos -2667
+ }
+set N60641000 [stack 0]
+ Dot {
+  name Dot23
+  xpos 1482
+  ypos 6472
+  hide_input true
+ }
+push $N6054d800
+ Dot {
+  name Dot124
+  xpos 452
+  ypos -5260
+ }
+set N60640c00 [stack 0]
+ Dot {
+  name Dot125
+  xpos 452
+  ypos -5196
+ }
+push $N60640c00
+add_layer {GI GI.red GI.green GI.blue}
+ Shuffle2 {
+  fromInput1 {{0} B}
+  in1 GI
+  fromInput2 {{0} B}
+  mappings "4 GI.red 0 0 rgba.red 0 0 GI.green 0 1 rgba.green 0 1 GI.blue 0 2 rgba.blue 0 2 black -1 -1 rgba.alpha 0 3"
+  name Shuffle15
+  xpos 1044
+  ypos -5263
+ }
+ Copy {
+  inputs 2
+  from0 rgba.alpha
+  to0 rgba.alpha
+  name Copy26
+  xpos 1044
+  ypos -5205
+ }
+ Remove {
+  operation keep
+  channels rgba
+  name Remove26
+  xpos 1044
+  ypos -5135
+ }
+ ColorCorrect {
+  shadows 0
+  name GI_CC
+  xpos 1044
+  ypos -4959
+ }
+ Dot {
+  name Dot126
+  xpos 1078
+  ypos -4086
+ }
+set N60671400 [stack 0]
+ Dot {
+  name Dot20
+  xpos 1482
+  ypos 6173
+  hide_input true
+ }
+push $N6054dc00
+ Dot {
+  name Dot127
+  xpos 441
+  ypos -6640
+ }
+set N60671000 [stack 0]
+ Dot {
+  name Dot128
+  xpos 441
+  ypos -6576
+ }
+push $N60671000
+add_layer {DiffuseLighting DiffuseLighting.red DiffuseLighting.green DiffuseLighting.blue}
+ Shuffle2 {
+  fromInput1 {{0} B}
+  in1 DiffuseLighting
+  fromInput2 {{0} B}
+  mappings "4 DiffuseLighting.red 0 0 rgba.red 0 0 DiffuseLighting.green 0 1 rgba.green 0 1 DiffuseLighting.blue 0 2 rgba.blue 0 2 black -1 -1 rgba.alpha 0 3"
+  name Shuffle16
+  xpos 1033
+  ypos -6643
+ }
+ Copy {
+  inputs 2
+  from0 rgba.alpha
+  to0 rgba.alpha
+  name Copy27
+  xpos 1033
+  ypos -6585
+ }
+ Remove {
+  operation keep
+  channels rgba
+  name Remove27
+  xpos 1033
+  ypos -6515
+ }
+ ColorCorrect {
+  name Diffuselight_CC
+  xpos 1033
+  ypos -6377
+ }
+ Dot {
+  name Dot129
+  xpos 1067
+  ypos -5485
+ }
+set N606a5800 [stack 0]
+ Dot {
+  name Dot19
+  xpos 1482
+  ypos 5876
+  hide_input true
+ }
+push $N6054c000
+ Dot {
+  name Dot96
+  xpos 324
+  ypos 5474
+ }
+ Remove {
+  operation keep
+  channels alpha
+  name Remove19
+  xpos 1074
+  ypos 5465
+ }
+push $N6058bc00
+push $N6058bc00
+push $N6058a000
+push $N6058a000
+push $N605ba400
+push $N605ba400
+push $N605e6800
+push $N605e6800
+push $N60610c00
+push $N60610c00
+push $N60641000
+push $N60641000
+push $N60671400
+push $N60671400
+push $N606a5800
+push $N606a5800
+push $N6052e400
+ Remove {
+  name Remove28
+  xpos 1601
+  ypos -6290
+ }
+ Merge2 {
+  inputs 2
+  operation plus
+  name Merge66
+  label "\[value mix]"
+  xpos 1601
+  ypos -5494
+ }
+ Shuffle2 {
+  inputs 2
+  fromInput1 {{0} B A}
+  fromInput2 {{0} B A}
+  in2 rgba
+  out2 DiffuseLighting
+  mappings "7 rgba.red 0 0 rgba.red 0 0 rgba.green 0 1 rgba.green 0 1 rgba.blue 0 2 rgba.blue 0 2 rgba.alpha 0 3 rgba.alpha 0 3 rgba.red 1 0 DiffuseLighting.red 1 0 rgba.green 1 1 DiffuseLighting.green 1 1 rgba.blue 1 2 DiffuseLighting.blue 1 2"
+  name Shuffle1
+  xpos 1601
+  ypos -5435
+ }
+ Merge2 {
+  inputs 2
+  operation plus
+  name Merge67
+  label "\[value mix]"
+  xpos 1601
+  ypos -4095
+ }
+ Shuffle2 {
+  inputs 2
+  fromInput1 {{0} B A}
+  fromInput2 {{0} B A}
+  in2 rgba
+  out2 GI
+  mappings "7 rgba.red 0 0 rgba.red 0 0 rgba.green 0 1 rgba.green 0 1 rgba.blue 0 2 rgba.blue 0 2 rgba.alpha 0 3 rgba.alpha 0 3 rgba.red 1 0 GI.red 1 0 rgba.green 1 1 GI.green 1 1 rgba.blue 1 2 GI.blue 1 2"
+  name Shuffle2
+  xpos 1601
+  ypos -4059
+ }
+ Merge2 {
+  inputs 2
+  operation plus
+  name Merge68
+  label "\[value mix]"
+  xpos 1601
+  ypos -2676
+ }
+ Shuffle2 {
+  inputs 2
+  fromInput1 {{0} B A}
+  fromInput2 {{0} B A}
+  in2 rgba
+  out2 SpecularLighting
+  mappings "7 rgba.red 0 0 rgba.red 0 0 rgba.green 0 1 rgba.green 0 1 rgba.blue 0 2 rgba.blue 0 2 rgba.alpha 0 3 rgba.alpha 0 3 rgba.red 1 0 SpecularLighting.red 1 0 rgba.green 1 1 SpecularLighting.green 1 1 rgba.blue 1 2 SpecularLighting.blue 1 2"
+  name Shuffle3
+  xpos 1601
+  ypos -2587
+ }
+ Merge2 {
+  inputs 2
+  operation plus
+  name Merge69
+  label "\[value mix]"
+  xpos 1601
+  ypos -1264
+ }
+ Shuffle2 {
+  inputs 2
+  fromInput1 {{0} B A}
+  fromInput2 {{0} B A}
+  in2 rgba
+  out2 SSS
+  mappings "7 rgba.red 0 0 rgba.red 0 0 rgba.green 0 1 rgba.green 0 1 rgba.blue 0 2 rgba.blue 0 2 rgba.alpha 0 3 rgba.alpha 0 3 rgba.red 1 0 SSS.red 1 0 rgba.green 1 1 SSS.green 1 1 rgba.blue 1 2 SSS.blue 1 2"
+  name Shuffle4
+  xpos 1601
+  ypos -1159
+ }
+ Merge2 {
+  inputs 2
+  operation plus
+  name Merge70
+  label "\[value mix]"
+  xpos 1601
+  ypos 279
+ }
+ Shuffle2 {
+  inputs 2
+  fromInput1 {{0} B A}
+  fromInput2 {{0} B A}
+  in2 rgba
+  out2 Reflections
+  mappings "7 rgba.red 0 0 rgba.red 0 0 rgba.green 0 1 rgba.green 0 1 rgba.blue 0 2 rgba.blue 0 2 rgba.alpha 0 3 rgba.alpha 0 3 rgba.red 1 0 Reflections.red 1 0 rgba.green 1 1 Reflections.green 1 1 rgba.blue 1 2 Reflections.blue 1 2"
+  name Shuffle5
+  xpos 1601
+  ypos 382
+ }
+ Merge2 {
+  inputs 2
+  operation plus
+  name Merge71
+  label "\[value mix]"
+  xpos 1611
+  ypos 1745
+ }
+ Shuffle2 {
+  inputs 2
+  fromInput1 {{0} B A}
+  fromInput2 {{0} B A}
+  in2 rgba
+  out2 Refractions
+  mappings "7 rgba.red 0 0 rgba.red 0 0 rgba.green 0 1 rgba.green 0 1 rgba.blue 0 2 rgba.blue 0 2 rgba.alpha 0 3 rgba.alpha 0 3 rgba.red 1 0 Refractions.red 1 0 rgba.green 1 1 Refractions.green 1 1 rgba.blue 1 2 Refractions.blue 1 2"
+  name Shuffle6
+  xpos 1611
+  ypos 1839
+ }
+ Merge2 {
+  inputs 2
+  operation plus
+  name Merge72
+  label "\[value mix]"
+  xpos 1601
+  ypos 3145
+ }
+ Shuffle2 {
+  inputs 2
+  fromInput1 {{0} B A}
+  fromInput2 {{0} B A}
+  in2 rgba
+  out2 Emission
+  mappings "7 rgba.red 0 0 rgba.red 0 0 rgba.green 0 1 rgba.green 0 1 rgba.blue 0 2 rgba.blue 0 2 rgba.alpha 0 3 rgba.alpha 0 3 rgba.red 1 0 Emission.red 1 0 rgba.green 1 1 Emission.green 1 1 rgba.blue 1 2 Emission.blue 1 2"
+  name Shuffle7
+  xpos 1601
+  ypos 3222
+ }
+ Merge2 {
+  inputs 2
+  operation plus
+  name Merge73
+  label "\[value mix]"
+  xpos 1601
+  ypos 4605
+ }
+ Shuffle2 {
+  inputs 2
+  fromInput1 {{0} B A}
+  fromInput2 {{0} B A}
+  in2 rgba
+  out2 VolumeLighting
+  mappings "7 rgba.red 0 0 rgba.red 0 0 rgba.green 0 1 rgba.green 0 1 rgba.blue 0 2 rgba.blue 0 2 rgba.alpha 0 3 rgba.alpha 0 3 rgba.red 1 0 VolumeLighting.red 1 0 rgba.green 1 1 VolumeLighting.green 1 1 rgba.blue 1 2 VolumeLighting.blue 1 2"
+  name Shuffle8
+  xpos 1601
+  ypos 4685
+ }
+ Copy {
+  inputs 2
+  from0 rgba.alpha
+  to0 rgba.alpha
+  name Copy28
+  xpos 1601
+  ypos 5465
+ }
+ Premult {
+  name Premult6
+  xpos 1601
+  ypos 5801
+ }
+ Dot {
+  name Dot17
+  xpos 1635
+  ypos 5956
+ }
+set Na0f0bc00 [stack 0]
+ Switch {
+  inputs 2
+  which {{parent.view}}
+  name diffSwitch
+  xpos 1448
+  ypos 5953
+ }
+ Dot {
+  name Dot18
+  xpos 1482
+  ypos 6062
+ }
+push $Na0f0bc00
+ Switch {
+  inputs 2
+  which {{parent.view}}
+  name layer_bool1
+  xpos 1601
+  ypos 6059
+ }
+ Dot {
+  name Dot21
+  xpos 1635
+  ypos 6253
+ }
+set Na0f0ac00 [stack 0]
+ Switch {
+  inputs 2
+  which {{parent.Viewlayer}}
+  name GISwitch1
+  xpos 1448
+  ypos 6250
+ }
+ Dot {
+  name Dot22
+  xpos 1482
+  ypos 6359
+ }
+push $Na0f0ac00
+ Switch {
+  inputs 2
+  which {{parent.Viewlayer}}
+  name layer_bool2
+  xpos 1606
+  ypos 6356
+ }
+ Dot {
+  name Dot24
+  xpos 1635
+  ypos 6552
+ }
+set Nfa5c1800 [stack 0]
+ Switch {
+  inputs 2
+  which {{parent.View}}
+  name SpecSwitch
+  xpos 1448
+  ypos 6549
+ }
+ Dot {
+  name Dot25
+  xpos 1482
+  ypos 6658
+ }
+push $Nfa5c1800
+ Switch {
+  inputs 2
+  which {{parent.View}}
+  name layer_bool3
+  xpos 1601
+  ypos 6655
+ }
+ Dot {
+  name Dot29
+  xpos 1635
+  ypos 6834
+ }
+set Nfbbe1c00 [stack 0]
+ Switch {
+  inputs 2
+  which {{parent.View_1}}
+  name SSSswitch
+  xpos 1448
+  ypos 6831
+ }
+ Dot {
+  name Dot30
+  xpos 1482
+  ypos 6940
+ }
+push $Nfbbe1c00
+ Switch {
+  inputs 2
+  which {{parent.View_1}}
+  name layer_bool4
+  xpos 1601
+  ypos 6937
+ }
+ Dot {
+  name Dot31
+  xpos 1635
+  ypos 7131
+ }
+set Nfbbe0c00 [stack 0]
+ Switch {
+  inputs 2
+  which {{parent.View_2}}
+  name ReflectionSwitch
+  xpos 1448
+  ypos 7128
+ }
+ Dot {
+  name Dot32
+  xpos 1482
+  ypos 7237
+ }
+push $Nfbbe0c00
+ Switch {
+  inputs 2
+  which {{parent.View_2}}
+  name layer_bool5
+  xpos 1601
+  ypos 7234
+ }
+ Dot {
+  name Dot33
+  xpos 1635
+  ypos 7430
+ }
+set Nf619fc00 [stack 0]
+ Switch {
+  inputs 2
+  which {{parent.Diffuse_view}}
+  name refractionSwitch
+  xpos 1448
+  ypos 7427
+ }
+ Dot {
+  name Dot34
+  xpos 1482
+  ypos 7536
+ }
+push $Nf619fc00
+ Switch {
+  inputs 2
+  which {{parent.Diffuse_view}}
+  name layer_bool6
+  xpos 1601
+  ypos 7533
+ }
+ Dot {
+  name Dot38
+  xpos 1635
+  ypos 7718
+ }
+set Nf619e000 [stack 0]
+ Switch {
+  inputs 2
+  which {{parent.View_3}}
+  name EmissionSwitch
+  xpos 1448
+  ypos 7715
+ }
+ Dot {
+  name Dot39
+  xpos 1482
+  ypos 7824
+ }
+push $Nf619e000
+ Switch {
+  inputs 2
+  which {{parent.View_3}}
+  name layer_bool7
+  xpos 1601
+  ypos 7821
+ }
+ Dot {
+  name Dot40
+  xpos 1635
+  ypos 8015
+ }
+set Nf6cd5000 [stack 0]
+ Switch {
+  inputs 2
+  which {{parent.View_4}}
+  name VolSwitch
+  xpos 1448
+  ypos 8012
+ }
+ Dot {
+  name Dot41
+  xpos 1482
+  ypos 8121
+ }
+push $Nf6cd5000
+ Switch {
+  inputs 2
+  which {{parent.View_4}}
+  name layer_bool8
+  xpos 1601
+  ypos 8118
+ }
+set Nf6cd4400 [stack 0]
+ LayerContactSheet {
+  showLayerNames true
+  name LayerContactSheet1
+  xpos 1802
+  ypos 8172
+ }
+ Viewer {
+  frame 16
+  frame_range 1-100
+  fps 25
+  name Viewer1
+  xpos 1601
+  ypos -6254
+ }
+push $Nf6cd4400
+ Output {
+  name Output1
+  selected true
+  xpos 1601
+  ypos 8582
+ }
+end_group
+set N7f68e580 [stack 0]
+push $Nad167000
+Dot {
+ name Dot2
+ xpos 472
+ ypos -6730
+}
+add_layer {CryptoMaterial00 CryptoMaterial00.red CryptoMaterial00.green CryptoMaterial00.blue CryptoMaterial00.alpha}
+add_layer {CryptoMaterial01 CryptoMaterial01.red CryptoMaterial01.green CryptoMaterial01.blue CryptoMaterial01.alpha}
+add_layer {CryptoMaterial02 CryptoMaterial02.red CryptoMaterial02.green CryptoMaterial02.blue CryptoMaterial02.alpha}
+add_layer {CryptoMaterial03 CryptoMaterial03.red CryptoMaterial03.green CryptoMaterial03.blue CryptoMaterial03.alpha}
+add_layer {CryptoMaterial04 CryptoMaterial04.red CryptoMaterial04.green CryptoMaterial04.blue CryptoMaterial04.alpha}
+add_layer {CryptoMaterial05 CryptoMaterial05.red CryptoMaterial05.green CryptoMaterial05.blue CryptoMaterial05.alpha}
+Cryptomatte {
+ name Cryptomatte1
+ xpos 540
+ ypos -6733
+ matteOutput alpha
+ matteList defaultMaterial_SG1
+ cryptoLayer CryptoMaterial
+ expression "((CryptoMaterial00.red == 8253018.5) ? CryptoMaterial00.green : 0.0) + ((CryptoMaterial00.blue == 8253018.5) ? CryptoMaterial00.alpha : 0.0) + ((CryptoMaterial01.red == 8253018.5) ? CryptoMaterial01.green : 0.0) + ((CryptoMaterial01.blue == 8253018.5) ? CryptoMaterial01.alpha : 0.0) + ((CryptoMaterial02.red == 8253018.5) ? CryptoMaterial02.green : 0.0) + ((CryptoMaterial02.blue == 8253018.5) ? CryptoMaterial02.alpha : 0.0) + ((CryptoMaterial03.red == 8253018.5) ? CryptoMaterial03.green : 0.0) + ((CryptoMaterial03.blue == 8253018.5) ? CryptoMaterial03.alpha : 0.0) + ((CryptoMaterial04.red == 8253018.5) ? CryptoMaterial04.green : 0.0) + ((CryptoMaterial04.blue == 8253018.5) ? CryptoMaterial04.alpha : 0.0) + ((CryptoMaterial05.red == 8253018.5) ? CryptoMaterial05.green : 0.0) + ((CryptoMaterial05.blue == 8253018.5) ? CryptoMaterial05.alpha : 0.0) + 0"
+ keyedName ""
+ previewExpression0 "((mantissa(abs(CryptoMaterial00.red)) * 1 % 0.25) * CryptoMaterial00.green + (mantissa(abs(CryptoMaterial00.blue)) * 1 % 0.25) * CryptoMaterial00.alpha + (mantissa(abs(CryptoMaterial01.red)) * 1 % 0.25) * CryptoMaterial01.green + (mantissa(abs(CryptoMaterial01.blue)) * 1 % 0.25) * CryptoMaterial01.alpha)"
+ previewExpression1 "((mantissa(abs(CryptoMaterial00.red)) * 16 % 0.25) * CryptoMaterial00.green + (mantissa(abs(CryptoMaterial00.blue)) * 16 % 0.25) * CryptoMaterial00.alpha + (mantissa(abs(CryptoMaterial01.red)) * 16 % 0.25) * CryptoMaterial01.green + (mantissa(abs(CryptoMaterial01.blue)) * 16 % 0.25) * CryptoMaterial01.alpha)"
+ previewExpression2 "((mantissa(abs(CryptoMaterial00.red)) * 64 % 0.25) * CryptoMaterial00.green + (mantissa(abs(CryptoMaterial00.blue)) * 64 % 0.25) * CryptoMaterial00.alpha + (mantissa(abs(CryptoMaterial01.red)) * 64 % 0.25) * CryptoMaterial01.green + (mantissa(abs(CryptoMaterial01.blue)) * 64 % 0.25) * CryptoMaterial01.alpha)"
+ previewExpression3 ""
+ previewChannel none
+ in00 CryptoMaterial00
+ in01 CryptoMaterial01
+ in02 CryptoMaterial02
+ in03 CryptoMaterial03
+ in04 CryptoMaterial04
+ in05 CryptoMaterial05
+ in06 none
+ in07 none
+}
+push $N7f68e580
+Group {
+ inputs 2
+ name AOV_CC
+ tile_color 0x734a74ff
+ label "\[value Layer]"
+ xpos 707
+ ypos -6739
+ addUserKnob {20 User}
+ addUserKnob {26 SelectLyaer l "Select layer"}
+ addUserKnob {41 Layer T Shuffle1.in}
+ addUserKnob {26 _1 l "" +STARTLINE}
+ addUserKnob {41 saturation T ColorCorrect.saturation}
+ addUserKnob {41 contrast T ColorCorrect.contrast}
+ addUserKnob {41 gamma T ColorCorrect.gamma}
+ addUserKnob {41 gain T ColorCorrect.gain}
+ addUserKnob {41 offset T ColorCorrect.offset}
+ addUserKnob {6 View l "View layer" +STARTLINE}
+ addUserKnob {26 _2 l "" +STARTLINE}
+ addUserKnob {26 aobut l "" +STARTLINE T "AOV CC v1.0 by Kian Tavasoli"}
+}
+ Input {
+  inputs 0
+  name Mask
+  selected true
+  xpos 463
+  ypos -570
+  number 1
+ }
+ Dot {
+  name Dot4
+  xpos 497
+  ypos -468
+ }
+ Input {
+  inputs 0
+  name CG
+  xpos 802
+  ypos -684
+ }
+ Dot {
+  name Dot2
+  xpos 836
+  ypos -636
+ }
+set N53981800 [stack 0]
+ Dot {
+  name Dot3
+  xpos 674
+  ypos -636
+ }
+ Shuffle {
+  in SSS
+  name Shuffle1
+  xpos 640
+  ypos -526
+ }
+set N53981000 [stack 0]
+ ColorCorrect {
+  inputs 1+1
+  saturation 1.44
+  name ColorCorrect
+  xpos 640
+  ypos -471
+ }
+ Dot {
+  name Dot5
+  xpos 674
+  ypos -391
+ }
+set N53980800 [stack 0]
+push $N53980800
+push $N53981000
+push $N53981800
+ Merge2 {
+  inputs 2
+  operation from
+  bbox B
+  name Merge1
+  label "\[value mix]"
+  xpos 802
+  ypos -532
+ }
+ Merge2 {
+  inputs 2
+  operation plus
+  bbox A
+  name Merge2
+  label "\[value mix]"
+  xpos 802
+  ypos -400
+ }
+ Switch {
+  inputs 2
+  which {{parent.View}}
+  name layer_bool
+  xpos 802
+  ypos -311
+ }
+ Output {
+  name Output1
+  xpos 802
+  ypos -160
+ }
+end_group
+Viewer {
+ inputs 2
+ frame 16
+ frame_range 1-100
+ fps 25
+ name Viewer1
+ xpos 1008
+ ypos -6823
+}

@@ -1,0 +1,4 @@
+sel_nodes = nuke.selectedNodes()
+for node in sel_nodes:
+    if node.Class() == "Read":
+        node.knob("colorspace").setValue("Utility - Linear - sRGB")
